@@ -3,20 +3,20 @@
 #define linha cout << "\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n"
 
 using namespace std;
-float soma(float n1, float n2){
-    return n1 + n2;
+void soma(float *point, float n1, float n2){
+    *point = n1 + n2;
 }
 
-float subtracao(float n1, float n2){
-    return n1 - n2;
+void subtracao(float *point, float n1, float n2){
+    *point = n1 - n2;
 }
 
-float divisao(float n1, float n2){
-    return n1 / n2;
+void divisao(float *point, float n1, float n2){
+    *point = n1 / n2;
 }
 
-float multiplicacao(float n1, float n2){
-    return n1 * n2;
+void multiplicacao(float *point, float n1, float n2){
+    *point = n1 * n2;
 }
 
 
@@ -27,7 +27,8 @@ int main() {
     while(true){
         char parada;
         int operacao;
-        float n1,n2,res;
+        float n1,n2,result;
+
         system("cls");
         linha;
         cout << "CALCULADORA EM C++";
@@ -44,22 +45,23 @@ int main() {
         cin >> n2;
         system("cls");
         linha;
+
         switch(operacao){
         case 0:
-            res = soma(n1,n2);
+            soma(&result,n1,n2);
             break;
         case 1:
-            res = subtracao(n1,n2);
+            subtracao(&result,n1,n2);
             break;
         case 2:
-            res = multiplicacao(n1,n2);
+            multiplicacao(&result,n1,n2);
             break;
         case 3:
-            res = divisao(n1,n2);
+            divisao(&result,n1,n2);
             break;
         }
 
-        cout << "RESULTADO: " << res;
+        cout << "RESULTADO: " << result;
         linha;
         cout << "QUER CONTINUAR S/N: ";
         cin >> parada;
